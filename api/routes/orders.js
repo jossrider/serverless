@@ -11,7 +11,8 @@ router.get('/:id', (req, res) => {
     Orders.findById(req.params.id).exec().then(x => res.status(200).send(x));
 });
 
-router.post('/', isAuthenticated, (req, res) => {
+// isAuthenticated,
+router.post('/',  (req, res) => {
     const { _id } = req.user;
     Orders.create({ ...req.body, user_id: _id }).then(x => res.status(201).send(x));
 }); 
